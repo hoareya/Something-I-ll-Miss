@@ -1,0 +1,111 @@
+@font-face {
+  font-family: "MonoRegular";
+  src: url("font/ArtCompanyMonoTest-Regular.woff2") format("woff2"),
+       url("font/ArtCompanyMonoTest-Regular.woff") format("woff"),
+       url("font/ArtCompanyMonoTest-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  background: #ede9e2;
+  color: #2f2e2b;
+  font-family: 'MonoRegular', monospace;
+  overflow-x: hidden;
+}
+
+/* fixed title */
+.fixed-title {
+  font-family: 'MonoRegular', monospace;
+  position: fixed;
+  top: 40%;
+  left: 4rem;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+.fixed-title h1 {
+  font-family: 'MonoRegular', monospace;  
+  font-weight: 400;
+  font-size: 1.5rem;
+  letter-spacing: 0.03em;
+  margin: 0;
+}
+
+/* content wrapper */
+.page {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;  /* push everything to the right side */
+  padding-right: 6rem;    /* adjust spacing from right edge */
+}
+
+/* image section */
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+}
+.intro img {
+  max-width: 600px;
+  width: 90%;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+.scroll-note {
+  font-family: 'MonoRegular', monospace;
+  font-size: 1rem;
+  margin-top: 0.8rem;
+  color: #56524c;
+  text-align: right;
+}
+
+/* memory text */
+.memory {
+  margin-top: 40vh;          /* closer to top */
+  max-width: 600px;
+  text-align: right;
+  line-height: 2;
+  font-size: 1.1rem;
+}
+.memory p {
+  margin: 1.6rem 0;
+}
+
+/* hover effect for breeze */
+.breeze {
+  display: inline-block;
+  transition: all 0.4s ease;
+}
+.breeze:hover {
+  color: #7a7567;
+  letter-spacing: 0.1em;
+  transform: translateX(4px); /* subtle wind drift */
+}
+
+/* small screen responsive */
+@media (max-width: 700px) {
+  .fixed-title {
+    position: static;
+    text-align: center;
+    transform: none;
+    margin: 2rem 0 1rem;
+  }
+  .page {
+    align-items: center;
+    padding-right: 0;
+  }
+  .intro {
+    align-items: center;
+  }
+  .memory {
+    text-align: left;
+    margin-top: 25vh;
+  }
+}

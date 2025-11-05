@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Something I’ll Miss — Oct 15th, 2025</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double+Ink:wght@100..900&family=Bitcount+Prop+Single+Ink:wght@100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="style6.css">
+</head>
+<body>
+  <main class="page">
+
+    <header class="title-nav">
+  <a href="entry5.html" class="nav-arrow">&lt;</a>
+  <a href="index.html" class="title">Something I’ll Miss — Oct 15, 2025</a>
+  <a href="entry7.html" class="nav-arrow">&gt;</a>
+</header>
+
+    <h1 class="title">Something I’ll Miss — Oct 20th, 2025</h1>
+
+    <section class="reveal-container">
+      <div class="overlay">
+        <img id="memoryImage" src="imgs/leaves.jpg" alt="Trees wrapped in lights, early winter evening.">
+        <p class="caption">click image to reveal memory</p>
+
+        <div id="memoryText" class="memory hidden">
+
+          <p>I stepped out, and the leaves had browned with faded green.</p>
+          <p>Tree trunks dressed in lights,</p>
+          <p>and in the park, a Christmas tree already standing.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const img = document.getElementById("memoryImage");
+    const text = document.getElementById("memoryText");
+    const caption = document.querySelector(".caption");
+
+    img.addEventListener("click", () => {
+      img.classList.add("fade-out");
+      caption.classList.add("fade-out");
+      text.classList.remove("hidden");
+      text.classList.add("fade-in");
+    });
+  </script>
+</body>
+</html>

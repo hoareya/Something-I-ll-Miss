@@ -1,0 +1,89 @@
+body {
+  margin: 0;
+  background: #2b2925;
+  font-family: 'Bitcount Prop Single Ink', monospace;
+  text-align: center;
+}
+
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+
+.title {
+  font-family: 'Bitcount Grid Double Ink', monospace;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 3rem;
+}
+
+/* container to overlap image and text */
+.reveal-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.overlay {
+  position: relative;
+  display: inline-block;
+  max-width: 600px;
+  width: 90%;
+}
+
+/* image */
+.overlay img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: filter 0.5s ease, opacity 1s ease;
+}
+
+.overlay img:hover {
+  filter: brightness(1.1);
+}
+
+/* caption below image */
+.caption {
+  font-family: 'Bitcount Prop Single Ink', monospace;
+  font-size: 0.95rem;
+  color: #5e5a54;
+  margin-top: 0.8rem;
+  transition: opacity 1s ease;
+}
+
+/* memory text on top of image */
+.memory {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+  color: #2f2e2b;
+  line-height: 1.8;
+  font-size: 1.5rem;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+
+.memory p {
+  margin: 0.8rem 0;
+}
+
+/* hidden state */
+.hidden { display: block; opacity: 0; }
+
+/* transitions */
+.fade-in { opacity: 1; }
+.fade-out { opacity: 0; }
+
+/* responsive */
+@medi
+
+
