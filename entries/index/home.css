@@ -1,0 +1,115 @@
+:root{
+  --bg:#191919;               /* same dark vibe */
+  --ink:#d7d9de;
+  --ink-dim:#9aa0a8;
+  --glow:rgba(184,208,223,.35); /* cool glow */
+}
+
+*{ box-sizing:border-box; }
+html,body{
+  height:100%;
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+}
+
+/* layout wrapper */
+.wrap{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:3.5rem 1.25rem 4rem;
+}
+
+/* title (Bitcount Grid Single, match entry title sizing-ish) */
+.site-title{
+  font-family:"Bitcount Grid Single", system-ui, sans-serif;
+  font-weight:700;
+  letter-spacing:.05em;
+  font-size:2.6rem;    /* adjust if you want larger/smaller */
+  margin:0 0 4rem 0;
+  opacity:.9;
+  text-align:center;
+}
+
+/* grid of folders */
+.grid{
+  width:min(1200px, 94vw);
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);  /* 4 across like your mock */
+  gap:3.2rem 4.2rem;                      /* row / column gaps */
+  justify-items:center;
+}
+
+/* each card is a link */
+.card{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-decoration:none;
+  outline:none;
+}
+
+/* folder image */
+.card img{
+  width:160px;           /* tune to match your icon */
+  height:auto;
+  display:block;
+  filter:brightness(.95) saturate(.95);
+  transition: transform .35s ease, filter .35s ease, box-shadow .35s ease;
+}
+
+/* date label (Merriweather) – hidden until hover */
+.card::after{
+  content: attr(data-date);
+  position: absolute;
+  left: 50%;
+  top: calc(100% + .6rem);      /* below the icon */
+  transform: translateX(-50%) translateY(6px);
+  font-family:"Merriweather", serif;
+  font-size:.95rem;
+  line-height:1.4;
+  color:var(--ink-dim);
+  opacity:0;
+  transition: opacity .3s ease, transform .3s ease, color .3s ease;
+  pointer-events:none;
+  white-space:nowrap;
+}
+
+/* hover/tap focus states */
+.card:hover img,
+.card:focus img{
+  transform: translateY(-6px) scale(1.02);
+  filter: brightness(1.06) saturate(1.03);
+  box-shadow: 0 10px 26px var(--glow);
+}
+
+.card:hover::after,
+.card:focus::after{
+  opacity:1;
+  transform: translateX(-50%) translateY(0);
+  color:var(--ink);  /* brighten date on hover */
+}
+
+/* accessibility: keyboard focus ring */
+.card:focus-visible img{
+  outline: 2px solid var(--ink);
+  outline-offset: 4px;
+}
+
+/* responsive breakpoint */
+@media (max-width: 900px){
+  .site-title{ font-size:2rem; margin-bottom:2.2rem; }
+  .grid{ grid-template-columns: repeat(3, 1fr); gap:2.6rem 3.2rem; }
+  .card img{ width:140px; }
+  .card::after{ font-size:.9rem; }
+}
+
+@media (max-width: 560px){
+  .site-title{ font-size:1.6rem; }
+  .grid{ grid-template-columns: repeat(2, 1fr); gap:2.2rem 2rem; }
+  .card img{ width:120px; }
+  .card::after{ font-size:.85rem; }
+}
