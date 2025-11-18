@@ -1,0 +1,234 @@
+/* ---------- base colors ---------- */
+
+:root {
+  --bg: #05070b;          /* cold night */
+  --ink: #e3e6eb;         /* main text */
+  --ink-dim: #a5acb7;     /* navigation + hint */
+  --accent-cold: rgba(170, 205, 255, 0.5);
+}
+
+/* ---------- global layout ---------- */
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Merriweather", serif;
+}
+
+/* main flex wrapper */
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 1.5rem 3rem;
+}
+
+/* ---------- title / nav  ---------- */
+
+.title-nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Bitcount Prop Single Ink", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 2.4rem;           
+  letter-spacing: 0.05em;
+  color: var(--ink);
+  margin-top: 1.5rem;
+  margin-bottom: 5.2rem;
+}
+
+.nav-arrow {
+  text-decoration: none;
+  color: var(--ink-dim);
+  font-size: 1.6rem;
+  opacity: 0.7;
+  margin: 0 3rem;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.nav-arrow:hover,
+.nav-arrow:focus-visible {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.title {
+  text-decoration: none;
+  color: var(--ink);
+  flex: 1;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.title:hover,
+.title:focus-visible {
+  color: var(--ink-dim);
+}
+
+/* ---------- main content layout ---------- */
+
+.content {
+  width: 100%;
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* image block */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.hero img {
+  width: clamp(260px, 50vw, 480px);
+  height: auto;
+  border-radius: 10px;
+  display: block;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.7);
+  filter: contrast(1.05) saturate(1.02);
+  transition:
+    filter 0.5s ease,
+    box-shadow 0.5s ease,
+    transform 0.5s ease;
+}
+
+/* hover / tap – cold glow */
+.hero img:hover,
+.hero img:active {
+  cursor: pointer;
+  filter: grayscale(0.2) contrast(1.08);
+  box-shadow:
+    0 0 26px var(--accent-cold),
+    0 20px 40px rgba(0, 0, 0, 0.8);
+  transform: translateY(-4px);
+}
+
+.hint {
+  margin-top: 0.7rem;
+  font-size: 0.8rem;
+  color: var(--ink-dim);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* memory text */
+.memory {
+  max-width: 640px;
+  text-align: center;
+}
+
+.memory-line {
+  font-family: "Merriweather", serif;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--ink);
+  letter-spacing: 0.01em;
+  margin: 0.7rem 0;
+}
+
+/* ---------- animated words ---------- */
+
+.unreal,
+.same {
+  display: inline-block;
+}
+
+/* distance */
+.unreal {
+  animation: unrealDrift 11s ease-in-out infinite alternate;
+}
+
+/* closeness */
+.same {
+  animation: sameSettle 11s ease-in-out infinite alternate;
+}
+
+/* keyframes */
+@keyframes unrealDrift {
+  0% {
+    letter-spacing: 0.02em;
+    transform: translateY(0);
+    opacity: 0.9;
+  }
+  100% {
+    letter-spacing: 0.35em;
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+}
+
+@keyframes sameSettle {
+  0% {
+    letter-spacing: 0.3em;
+    transform: translateY(-4px);
+    opacity: 0.85;
+  }
+  100% {
+    letter-spacing: 0.02em;
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ---------- reduced motion safety ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition: none !important;
+  }
+}
+
+/* ---------- mobile ---------- */
+
+@media (max-width: 700px) {
+  /* slightly different “daytime” feel and smaller type */
+  body {
+    background: #f5f2ec;  /* lighter background */
+    color: #202024;
+  }
+
+  .title-nav {
+    font-size: 1.6rem;
+    margin-top: 0.75rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .nav-arrow {
+    font-size: 1.4rem;
+    margin: 0 1.8rem;
+  }
+
+  .hero img {
+    width: clamp(230px, 72vw, 420px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  .hint {
+    font-size: 0.75rem;
+  }
+
+  .memory-line {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #262226;
+  }
+}
