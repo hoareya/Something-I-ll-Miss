@@ -12,11 +12,32 @@ body {
 }
 
 
-.title {
-  font-family: 'Bitcount Grid Double Ink', monospace;
-  font-size: 2.5rem;
+/* Title + nav integrated */
+.title-nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Bitcount Grid Double Ink", system-ui, sans-serif;
+  font-size: 2rem;
   font-weight: 600;
-  margin-bottom: 3rem;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  margin-bottom: 2.5rem;
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  padding: 1rem 2rem 0.5rem;
+  z-index: 10;
+}
+
+.nav-arrow {
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 1.6rem;
+  opacity: 0.7;
+  margin: 0 3rem;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 /* container to overlap image and text */

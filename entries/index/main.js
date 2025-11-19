@@ -1,0 +1,1 @@
+let myNav = document.querySelector(".nav");

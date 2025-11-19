@@ -1,0 +1,111 @@
+:root{
+  --bg:#0e0f11;              /* near black, cool tone */
+  --ink:#e7e8eb;             /* icy white */
+  --ink-dim:#9aa0a8;         /* grayish cold tint */
+  --frost:#b8d0df;           /* pale blue highlight */
+}
+
+html,body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  height:100%;
+}
+
+.wrap{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:2rem 1rem 4rem;
+}
+
+/* title/nav */
+.title-nav{
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-family:"Bitcount Grid Single",system-ui,sans-serif;
+  font-weight:600;
+  font-size:2rem;           /* larger title */
+  letter-spacing:.05em;
+  color:var(--ink);
+  margin-top: 1rem;
+  margin-bottom:5.2rem;
+}
+
+.nav-arrow{
+  text-decoration:none;
+  color:var(--ink-dim);
+  font-size:1.6rem;
+  opacity:.7;
+  margin: 0 3rem;
+  transition:opacity .3s ease, transform .3s ease;
+}
+.nav-arrow:hover{
+  opacity:1;
+  transform:translateY(-2px);
+}
+
+.title{
+  text-decoration:none;
+  color:var(--ink);
+  flex:1;
+  text-align:center;
+  transition:color .3s ease;
+}
+.title:hover{ color:var(--frost); }
+
+/* image */
+.hero{
+  margin:0 0 5rem;
+  display:flex;
+  justify-content:center;
+}
+
+.hero img{
+  width:min(55vw,380px);      /* smaller centered image */
+  height:auto;
+  border-radius:8px;
+  filter:brightness(.85) saturate(.9);
+  transition:filter .6s ease, transform .6s ease, box-shadow .6s ease;
+}
+
+.hero img:hover{
+  filter:brightness(1.1) saturate(1.1);
+  box-shadow:0 0 25px rgba(180,220,255,.25); /* cold glow */
+  transform:scale(1.02);
+}
+
+/* memory text */
+.memory{
+  max-width:700px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:.3rem;
+  text-align:center;
+}
+
+.memory-line{
+  font-family:"Merriweather",serif;
+  font-size:.8rem;
+  line-height:0;
+  color:var(--ink-dim);
+  letter-spacing:.01em;
+  transition:color .4s ease, text-shadow .4s ease;
+}
+
+/* hover adds a crisp frost highlight */
+.memory-line:hover{
+  color:var(--ink);
+  text-shadow:0 0 6px rgba(184,208,223,.4);
+}
+
+/* media query: phones/tablets */
+@media (max-width:700px){
+  .title-nav{ font-size:1.5rem; flex-direction:column; gap:.3rem; }
+  .nav-arrow{ font-size:1.3rem; }
+  .hero img{ width:min(80vw,320px); }
+  .memory-line{ font-size:1rem; }
+}
