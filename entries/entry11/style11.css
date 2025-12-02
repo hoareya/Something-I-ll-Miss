@@ -1,0 +1,156 @@
+:root{
+  --bg:#0e0e0d;
+  --ink:#e9e7e2;
+  --ink-dim:#a6a49f;
+  --accent:#ffffff;
+}
+
+*{ box-sizing:border-box; }
+
+html,body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+}
+
+/* layout container */
+.wrap{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding: 1rem 1.5rem 4rem;
+}
+
+/* Title + navigation */
+.title-nav{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Bitcount Prop Single Ink", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 2.4rem;           
+  letter-spacing: 0.05em;
+  color: var(--ink);
+  margin-top: 1.5rem;
+  margin-bottom: 5.2rem;
+}
+
+.nav-arrow{
+  text-decoration:none;
+  color:var(--ink-dim);
+  font-size:1.6rem;
+  opacity:.7;
+  margin: 0 3rem;
+  transition:opacity .3s ease, transform .3s ease;
+}
+
+.nav-arrow:hover{
+  opacity:1;
+  transform:translateY(-2px);
+}
+
+.title{
+  text-decoration:none;
+  color:var(--ink);
+  flex:1;
+  text-align:center;
+  transition:color .3s ease;
+}
+
+.title:hover{ color:var(--ink-dim); }
+
+/* Image */
+.img-box{
+  display:flex;
+  justify-content:center;
+  margin-bottom:2.5rem;
+}
+
+.snow-img{
+  width: clamp(260px, 55vw, 480px);
+  border-radius:12px;
+  box-shadow:0 10px 26px rgba(255,255,255,.08);
+  transition:filter .6s ease, transform .6s ease;
+}
+
+.snow-img:hover{
+  filter:brightness(1.08);
+  transform:scale(1.02);
+}
+
+/* Snow button */
+.snow-btn{
+  background:#ffffff0f;
+  border:1px solid var(--ink-dim);
+  color:var(--ink);
+  padding:.7rem 1.4rem;
+  border-radius:8px;
+  cursor:pointer;
+  font-family:"Merriweather",serif;
+  margin-bottom:2.2rem;
+  transition:.3s ease;
+}
+.snow-btn:hover{
+  background:#ffffff18;
+  transform:translateY(-2px);
+}
+
+/* Memory text */
+.memory{
+  max-width:780px;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+}
+
+.memory-line{
+  font-family:"Merriweather",serif;
+  font-size:1rem;
+  line-height:0.3;
+  color:var(--ink-dim);
+  transition:color .3s ease, opacity .3s ease;
+}
+
+.memory-line:hover{
+  color:var(--accent);
+  opacity:1;
+}
+
+/* Mobile */
+@media (max-width:720px){
+  .title-nav{
+    font-size:1.5rem;
+    margin-bottom:3rem;
+  }
+  .nav-arrow{
+    font-size:1.4rem;
+    margin:0 1.2rem;
+  }
+  .snow-img{
+    width:90vw;
+  }
+  .memory-line{
+    font-size:1rem;
+  }
+}
+
+.flake{
+  position:fixed;
+  top:-10px;
+  width:8px;
+  height:8px;
+  background:white;
+  border-radius:50%;
+  pointer-events:none;
+  opacity:.8;
+  box-shadow:0 0 8px white;
+  animation: fall linear forwards;
+}
+
+@keyframes fall{
+  to{
+    transform:translateY(105vh);
+  }
+}
